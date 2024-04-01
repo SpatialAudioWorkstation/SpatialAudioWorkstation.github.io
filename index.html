@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spatial Senior Design Recap</title>
+</head>
+<body>
+<section>
+  <h2>User Testing Signup</h2>
+  <p><a href="https://forms.office.com/r/CimTyFh82E">User Testing Signup</a></p>
+  <img src="assets/SpatialUserTesting.png" alt="Signup QR Code" style="width:30%;">
+</section>
+
+<section>
+  <h2>Tech Stack Explanation</h2>
+  <p>The piece of software known as the Spatial Audio Workstation (SAW) was developed using several open-source frameworks developed by some lovely people in the software community. This process would not have been possible without the work of:</p>
+  <ul>
+    <li><a href="https://www.tracktion.com/">Tracktion</a> - an open-source backend Digital Audio Workstation (the Tracktion team has a fully developed open-source DAW called Waveform that utilizes their Tracktion backend)</li>
+    <li><a href="https://godotengine.org/">Godot</a> - a free and open-source game engine that we used to make our Guided User Interface (GUI) for the Spatial Audio Workstation</li>
+  </ul>
+  <p>We evaluated a bunch of options for developing our GUI but ended up deciding to use Godot due to its open-source nature and its C++ extensibility. Being able to integrate our own C++ code meant that we were able to develop custom objects that could be used on the front end as needed.</p>
+  <p>This extensibility comes into play in later, where we showcase how we created our own <a href="#interprocess-communication">message handler</a> between our modified Tracktion backend and our Godot frontend.</p>
+</section>
+
+<section>
+    <h2>More Comprehensive Feature List</h2>
+    <ul>
+      <li>DAW Functionality
+        <ul>
+          <li>Spatializer - <a href="https://www.adsrsounds.com/product/software/panagement/">Panagement 2</a> which only spatializes stereo, we plan to replace in the future</li>
+          <li>Smart Tool - Functionality dependent on where you click, on a clip
+            <ul>
+              <li>Cross-Fade, Fade In/Out, Trim Clip, Split Clip</li>
+            </ul>
+          </li>
+          <li>TrackView - A track view is the tab container associated with a 3D entity, all of the tracks and their associated clip audio will be spatialized based on the entity's position relative to the listener object
+            <ul>
+              <li>Track Reordering - The user can reorder tracks in the tracklist by clicking and dragging a track.</li>
+              <li>Add Track Button - Creates an empty track within the current TrackView, adds the track to the global track list within the Track Tree</li>
+              <li>Playhead Window - Shows what section of the tracks is visible based on the relative size of the tracks in the TrackView.</li>
+              <li>Playheads - Displays the current playback position within a timeline or waveform, facilitating navigation, editing, and control of audio playback.</li>
+              <li>Zoom - Allows for the resizing of the content within a TrackView.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Track & Clip Trees
+        <ul>
+          <li>Track Tree - Every time you create a track, it gets added to the global track list within the Track Tree.
+            <ul>
+              <li>Track Management Window - When you double-click a track in the Track Tree, you are presented with the following options:
+                <ul>
+                  <li>Duplicate - Creates an exact duplicate of the track, including all of its contents, and adds it to the global track list in the Track Tree.</li>
+                  <li>Delete - Upon confirmation, deletes all occurrences of a track within all TrackViews and then deletes the track from the global track list.</li>
+                </ul>
+              </li>
+              <li>Drag & Drop - From the Track Tree, the user can drag and drop a track from the global track list into a TrackView. Tracks in multiple TrackViews are linked and an edit to one is applied across all representatives of that track.</li>
+            </ul>
+          </li>
+          <li>Clip Tree - Allows for the importing of clips and keeps a reference to all the clips that previously have been imported.
+            <ul>
+              <li>Clip Management Window - When you double-click a clip in the Clip Tree, you are presented with the following options:
+                <ul>
+                  <li>Delete - Upon confirmation, deletes all occurrences of a track within all TrackViews. Deletes track from the global track list.</li>
+                </ul>
+              </li>
+              <li>Drag & Drop - From the Track Tree, the user can drag and drop a track from the global track list into a TrackView. Tracks in multiple TrackViews are linked and an edit to one is applied across all representatives of that track.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>3D Object Workspace/3D Scene
+        <ul>
+          <li>3D Gizmo - 3D axis that allows for the movement of the selected object based on mouse click and drag. Locks movement to the axis of the 3D Gizmo that is clicked.</li>
+          <li>Camera - User's viewpoint in the 3D Scene.
+            <ul>
+              <li>Orbit - By middle-clicking, you can orbit the camera around a fixed point. If you start a rotate by clicking on an object, the camera will rotate about the center of that object.</li>
+              <li>Targeted Zoom - Zooming with the middle mouse wheel will zoom in the 3D Scene based on the location of the mouse cursor.</li>
+              <li>Panning - Clicking and dragging in the 3D Scene will cause the camera to pan.</li>
+              <li>General Zoom Buttons - In the top right of the 3D scene, the + and - buttons zoom the camera in and out a set distance.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Workflow Management
+        <ul>
+          <li>Object Properties/Creation Panel - Panel in the upper right of the GUI that allows for the creation of new objects and the editing of the properties of the selected object
+            <ul>
+              <li>Object Creation - From the object creation panel, you can click and drag objects into the scene. Preloaded object options include: Capsule, Cube, Sphere, Cylinder, Triangular Prism.</li>
+              <li>Object Properties - Allows for the movement, renaming, and recoloring of a 3D object. Cannot recolor custom obj files. Object color is displayed in the Object Selection Panel.</li>
+            </ul>
+          </li>
+          <li>Object Selection Panel - Panel on the top left of the User Interface, showcases a list of all the objects within the 3D scene. Behavior is as follows:
+            <ul>
+              <li>Zoom-to-Object - When you click on an object within the Object Selection Panel, the camera will point towards that object and set itself a short distance away from it.</li>
+              <li>Open Object Trackview - When you click on an object within the Object Selection Panel, the associated Trackview to that object will open up.</li>
+            </ul>
+          </li>
+          <li>Window Resizing/Disabling - All panels are resizable by clicking its edge and dragging size to preference.</li>
+        </ul>
+      </li>
+    </ul>
+  </section>  
+  
+  <section>
+    <h2>Future Features</h2>
+    <ul>
+      <li>Importing Custom Obj files</li>
+      <li>Better Spatializer</li>
+      <li>Apply Solo - potential tracklist feature</li>
+      <li>Mute Track - potential tracklist feature</li>
+      <li>Saving Session</li>
+      <li>Export as Application</li>
+      <li>Undo/Redo Functionality</li>
+      <li>Custom Waveform Generation</li>
+      <li>Sideways Scroll in TrackView</li>
+      <li>Loading from Saved Session</li>
+    </ul>
+  </section>
+  
+  <section>
+    <h2>Architecture/Design Documents</h2>
+    <div>
+      <h3>GUI Design</h3>
+      <img src="assets/SpatialUI.png" alt="GUI Design">
+    </div>
+    <div>
+      <h3>Block Diagram with Backend Interfaces</h3>
+      <img src="assets/Block Diagram with Backend Interfaces.png" alt="Block Diagram with Backend Interfaces">
+    </div>
+    <div>
+      <h3>Block Diagram with FrontValueTree</h3>
+      <img src="assets/Block Diagram with FrontValueTree.png" alt="Block Diagram with FrontValueTree">
+    </div>
+    <div>
+      <h3>Block Diagram</h3>
+      <img src="assets/Block Diagram.png" alt="Block Diagram">
+    </div>
+    <div>
+      <h3>Interprocess Communication</h3>
+      <img src="assets/Interprocess Communication.png" alt="Interprocess Communication">
+    </div>
+  </section>
+  
+  
+  <section>
+    <h2>Demo</h2>
+    <p>This section is reserved for a demo or description of how the Spatial Audio Workstation functions in a real-world scenario. Include links to video demos, interactive examples, or detailed walkthroughs as needed.</p>
+  </section>
+  
+
+</body>
+</html>
