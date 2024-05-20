@@ -9,20 +9,20 @@
     <link rel="icon" type="image/x-icon" href="/assets/logo/favicon.ico">
 
     <script>
-        document.addEventListener("DOMContentLoaded", function(event) { 
-            var acc = document.getElementsByClassName("accordion");
-            for (var i = 0; i < acc.length; i++) {
-                acc[i].addEventListener("click", function() {
-                    this.classList.toggle("active");
-                    var panel = this.nextElementSibling;
-                    if (panel.style.display === "block") {
-                        panel.style.display = "none";
-                    } else {
-                        panel.style.display = "block";
-                    }
-                });
-            }
+       document.addEventListener('DOMContentLoaded', (event) => {
+    document.querySelectorAll('.accordion').forEach(button => {
+        button.addEventListener('click', function() {
+            this.classList.toggle('active');
+
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            } 
         });
+    });
+});
     </script>
 </head>
 <body>
