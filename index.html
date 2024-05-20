@@ -4,22 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spatial Senior Design Recap</title>
-    <style>
-        body { font-family: Arial, sans-serif; color: #333; margin: 0; padding: 0; background-color: #936ebe; }
-        header { background: #5b3995; color: white; padding: 10px 20px; text-align: center; position: sticky; top: 0; }
-        a { color: #a789d1; text-decoration: none; } /* Brighter purple for normal state to distinguish links */
-        a:hover { text-decoration: underline; color: #5b3995; } /* Dark purple on hover for contrast */
-        section { padding: 20px; margin: 20px; border-radius: 5px; background: #ffffff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        h2, h3 { color: #5b3995; }
-        ul, p { line-height: 1.6; color: #5b3995; }
-        img { width: 100%; height: auto; border-radius: 5px; }
-        .accordion { cursor: pointer; padding: 10px; border: none; text-align: left; outline: none; font-size: 15px; transition: 0.4s; background: #936ebe; color: white; }
-        .active, .accordion:hover { background-color: #c7a2d9; }
-        .panel { padding: 0 18px; background-color: white; overflow: hidden; display: none; transition: max-height 0.2s ease-out; }
-        @media (max-width: 768px) {
-            header, section { padding-left: 10px; padding-right: 10px; }
-        }
-    </style>
+
+    <link rel="stylesheet" href="stylesheet.css">
     <script>
         document.addEventListener("DOMContentLoaded", function(event) { 
             var acc = document.getElementsByClassName("accordion");
@@ -39,8 +25,22 @@
 </head>
 <body>
 <header>
-    <h1>Spatial Audio Worstation (SAW)</h1>
+    <h1>Spatial Audio Workstation</h1>
+    <!-- <img src="assets/Spatial Logo.jpg"
+    width="100"
+    height="100"> -->
 </header>
+
+<section>
+    <h2>What is SAW?</h2>
+    <!-- <p>Traditional DAWs introduced the technology of audio spatialization, but they do not provide a good interface to design immersive spatial audio. Our mission is to provide an intuitive tool for audio engineers of all skill levels to design and export spatial audio.</p> -->
+    <p>The Spatial Audio Workstation (SAW) revolutionizes audio production by integrating 3D spatialization and object placement into a Digital Audio Workstation (DAW) using open-source technologies like the Tracktion engine and Godot game engine. SAW's intuitive 3D interface allows users to precisely manage audio in a dynamic visual context, enhancing creative control over sound design. Features include robust track and clip management, interaction with audio through 3D objects, and comprehensive editing tools that cater to both novice and professional users.</p>
+</section>
+
+<section>
+    <h2>Demo</h2>
+    <p>This section is reserved for a demo or description of how the Spatial Audio Workstation functions in a real-world scenario. Include links to video demos, interactive examples, or detailed walkthroughs as needed.</p>
+</section>
 
 <section>
   <h2>User Testing Signup</h2>
@@ -168,11 +168,6 @@
     <img src="assets/Block Diagram.png" alt="Block Diagram">
     <img src="assets/Interprocess Communication.png" alt="Interprocess Communication">
 </section> -->
-
-<section>
-    <h2>Demo</h2>
-    <p>This section is reserved for a demo or description of how the Spatial Audio Workstation functions in a real-world scenario. Include links to video demos, interactive examples, or detailed walkthroughs as needed.</p>
-</section>
 
 </body>
 </html>
