@@ -33,6 +33,18 @@ section {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* .column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+} */
+
 h2, h3 {
     color: #5b3995;
 }
@@ -78,9 +90,9 @@ video {
     transition: max-height 0.2s ease-out;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     header, section {
         padding-left: 10px;
         padding-right: 10px;
     }
-}
+} */

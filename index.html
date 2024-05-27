@@ -24,6 +24,37 @@
     });
 });
     </script>
+
+    <style>
+         .column {
+            float: left;
+            width: 50%;
+            padding: 10px;
+            box-sizing: border-box; /* Ensure padding doesn't affect the width */
+        }
+
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio (divide height by width: 9/16 = 0.5625) */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 </head>
 <body>
 <header>
@@ -41,13 +72,21 @@
 
 <section>
     <h2>Demo</h2>
-    <p>This section is reserved for a demo or description of how the Spatial Audio Workstation functions in a real-world scenario. Include links to video demos, interactive examples, or detailed walkthroughs as needed.</p>
+    <p>On the left you can see a demo of the current state of spatial. We still have progress to make before we release our MVP, but we are successfully spatializing audio according to the audio source's relative position to the listener object.  </p>
+    <p>On the right you can see an example project that was audio engineered using SAW.</p>
     <!-- <video width="900" controls autoplay>
         <!-- <source src="assets/videos/ContradictioninTerms.mp4" type="video/mp4"> -->
         <!-- <source src="assets/videos/spatial_demo.mp4" type="video/mp4"> -->
         <!-- Your browser does not support the video tag. -->
     <!-- </video> -->
-    <iframe width="1000" height="562" src="https://www.youtube.com/embed/rxYOR2Xedy8?si=iTGCG4YbvLv8IGzp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <div class="row">
+        <div class="column">
+            <iframe width="100%" height="500" src="https://www.youtube.com/embed/Id64ehbnGrQ?si=s3PVsGF-mw9Sw1lL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="column">
+            <iframe width="100%" height="500" src="https://www.youtube.com/embed/i6TcplbpEsc?si=heX2C7qYZ9I9qVAR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
 </section>
 
 <section>
