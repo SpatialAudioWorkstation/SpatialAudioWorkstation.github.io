@@ -76,6 +76,11 @@ video {
     transition: 0.4s;
     background: #936ebe;
     color: white;
+    width: 300px;
+    box-sizing: border-box;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 
 .accordion.active, .accordion:hover {
