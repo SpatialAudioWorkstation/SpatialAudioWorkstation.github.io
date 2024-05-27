@@ -48,6 +48,12 @@ img {
     border-radius: 5px;
 }
 
+video {
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
 .accordion {
     cursor: pointer;
     padding: 10px;
