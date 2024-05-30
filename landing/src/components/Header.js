@@ -1,36 +1,45 @@
 import React from 'react';
 
-function HeaderButton({ href, children }) {
+function scrollToSection(id) {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+}
+
+function HeaderButton({ targetId, children }) {
   return (
-    <a href={href} className='flex-1 text-center py-2 hover:text-blue-500'>
+    <button 
+      onClick={() => scrollToSection(targetId)} 
+      className='flex-1 text-center py-2 hover:text-blue-500'
+    >
       {children}
-    </a>
+    </button>
   );
 }
 
 function ButtonSeparator() {
-    return <span className='border-l h-8 self-center'></span>;
+  return <span className='border-l h-8 self-center'></span>;
 }
-
 
 const Header = () => {
   return (
-    <header className='flex items-center p-4 bg-white shadow-md fixed w-full top-0 z-50'>
-      <div className='flex-none w-40 text-2xl font-bold'>Logo</div>
+    <header className='flex items-center p-4 bg-header-brown shadow-md fixed w-full top-0 z-50 text-header-purple'>
+      <div className='flex-none w-80 text-2xl font-bold'>Logo</div>
       <nav className="flex flex-1 justify-between">
-        <HeaderButton href="#home">Home</HeaderButton>
+        {/* <HeaderButton targetId="home">Home</HeaderButton> */}
         <ButtonSeparator />
-        <HeaderButton href="#about">About</HeaderButton>
+        <HeaderButton targetId="about">About</HeaderButton>
         <ButtonSeparator />
-        <HeaderButton href="#demo">Demo</HeaderButton>
+        <HeaderButton targetId="demo">Demo</HeaderButton>
         <ButtonSeparator />
-        <HeaderButton href="#showcase">Showcase</HeaderButton>
+        <HeaderButton targetId="showcase">Showcase</HeaderButton>
         <ButtonSeparator />
-        <HeaderButton href="#testing">User Testing</HeaderButton>
+        <HeaderButton targetId="testing">User Testing</HeaderButton>
         <ButtonSeparator />
-        <HeaderButton href="#features">Features</HeaderButton>
+        <HeaderButton targetId="features">Features</HeaderButton>
         <ButtonSeparator />
-        <HeaderButton href="#contact">Contact Us</HeaderButton>
+        <HeaderButton targetId="contact">Contact Us</HeaderButton>
       </nav>
     </header>
   );
