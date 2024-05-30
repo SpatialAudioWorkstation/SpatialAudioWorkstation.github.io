@@ -1,43 +1,32 @@
 import React from 'react';
-// import '../styles/Section.css';
 
-const Section = ({ id, title, children, header_dir }) => {
-    if (header_dir === "left") {
-        return (
-            <section id={id} className='columns-2'>
-            <div>
-                <h2 className='text-3xl font-bold'>{title}</h2>
-            </div>
-            <div >
-                {children}
-            </div>
-            </section>
-        );
-        }
-    else if (header_dir === "right") {
-        return (
-            <section id={id} className='columns-2'>
-            <div>
-                {children}
-            </div>
-            <div>
-                <h2 className='text-3xl font-bold'>{title}</h2>
-            </div>
-            </section>
-        );
-        }
-    else {
-        return (
-            <section id={id}>
-            <div>
-                <h2>placeholder</h2>
-            </div>
-            <div>
-                placeholder
-            </div>
-            </section>
-        )
-    }
-  };
-  
-  export default Section;
+const Section = ({ id, title, children, headerOnLeft, isVideo }) => {
+  return (
+    <section 
+      id={id} 
+      className={`flex flex-col md:flex-row items-center my-8 ${isVideo ? 'min-h-screen' : 'min-h-1/2-screen'}`}
+    >
+      {headerOnLeft ? (
+        <>
+          <div className='w-full md:w-1/6 p-4 flex justify-center'>
+            <h2 className='text-3xl font-bold'>{title}</h2>
+          </div>
+          <div className='w-full md:w-5/6 p-4 flex justify-center'>
+            {children}
+          </div>
+        </>
+      ) : (
+        <>
+          <div className='w-full md:w-5/6 p-4 flex justify-center'>
+            {children}
+          </div>
+          <div className='w-full md:w-1/6 p-4 flex justify-center text-right'>
+            <h2 className='text-3xl font-bold'>{title}</h2>
+          </div>
+        </>
+      )}
+    </section>
+  );
+};
+
+export default Section;

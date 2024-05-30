@@ -1,17 +1,14 @@
 import React from 'react';
-import '../styles/Home.css';
 
 const Home = () => {
-  
-    return (
-        <div className="columns-1">
-            <div className="home-content">
-            {/* <svg src="landing\public\large-logo.svg" alt="Large Logo" className="large-logo" /> */}
-            <img src="landing\public\large-logo.svg" alt="Large Logo" className="large-logo" />
-            <p className="slogan">The Specialized DAW for Storytellers</p>
-            </div>
-        </div>
-    );
-  };
-  
-  export default Home;
+  return (
+    <div className='flex items-center justify-center w-full h-screen'>
+      <div className="text-center">
+        <img src="large-logo.svg" alt="Large Logo" className="w-auto h-auto mx-auto" />
+        <p className="text-2xl mt-4">The Specialized DAW for Storytellers</p>
+      </div>
+    </div>
+  );
+};
+
+export default Home;
