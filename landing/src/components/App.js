@@ -41,9 +41,10 @@ function getShowcaseContent() {
 
 function getTestingContent() {
   return (
-    <><p>Interested in trying out the Spatial Audio Workstation? Sign up for our user testing program to get early access to the software and provide feedback on your experience.</p>
+    <><p className='text-center font-bold'>Interested in trying out the Spatial Audio Workstation? </p>
+      <p className='pb-4'>Sign up for our user testing program to get early access to the software and provide feedback on your experience.</p>
     <p className='text-center'>
-      <a className='text-3xl text-purple-800 underline hover:text-purple-600' href="https://forms.office.com/r/CimTyFh82E">User Testing Signup</a>
+      <a className='text-3xl text-purple-800 font-bold hover:text-purple-600' href="https://forms.office.com/r/CimTyFh82E">User Testing Signup</a>
       </p>
     </>
   )
@@ -55,13 +56,13 @@ function AccordionItem({ title, children }) {
   return (
     <div className="mb-4">
       <button
-        className="w-full text-left py-2 px-4 bg-gray-200 text-gray-700 font-bold rounded focus:outline-none focus:bg-gray-300"
+        className="w-full text-left py-2 px-4 font-bold rounded focus:outline-none bg-section-bg-brown text-section-green hover:bg-section-green hover:text-section-bg-brown border-2 border-section-bg-brown"
         onClick={() => setIsOpen(!isOpen)}
       >
         {title}
       </button>
       {isOpen && (
-        <div className="bg-gray-100 border-t border-gray-300 p-4">
+        <div className="p-4">
           {children}
         </div>
       )}
@@ -74,7 +75,7 @@ function getFeaturesContent() {
     <section className="container mx-auto p-4">
       <AccordionItem title="DAW Functionality">
         <ul className="list-disc pl-6">
-          <li>Spatializer - <a href="https://www.adsrsounds.com/product/software/panagement/" className="text-blue-500">Panagement 2</a> which only spatializes stereo, we plan to replace it in the future.</li>
+          <li>Spatializer - <a href="https://www.adsrsounds.com/product/software/panagement/" className="text-purple-800 hover:text-purple-600">Panagement 2</a> which only spatializes stereo, we plan to replace it in the future.</li>
           <li>Smart Tool - Functionality dependent on where you click, on a clip, including:
             <ul className="list-disc pl-6">
               <li>Cross-Fade</li>
@@ -171,7 +172,7 @@ function App() {
   ];
 
   return (
-    <div className="bg-fixed bg-no-repeat bg-cover " style={{backgroundImage: "url('scene-bg.jpg')"}}>
+    <div className="bg-fixed bg-no-repeat bg-cover" style={{backgroundImage: "url('scene-bg.jpg')"}}>
       <Header />
       <div>
         <Home />

@@ -11,7 +11,7 @@ function HeaderButton({ targetId, children }) {
   return (
     <button 
       onClick={() => scrollToSection(targetId)} 
-      className='flex-1 text-center py-2 hover:text-blue-500'
+      className='flex-1 text-center py-2 hover:text-logo-hover hover:font-bold text-wrap'
     >
       {children}
     </button>
@@ -26,9 +26,11 @@ function Logo() {
     return (
       <button 
         onClick={() => scrollToSection('home')} 
-        className='relative group flex-none w-36 text-2xl font-bold md:w-60 lg:w-80 text-center py-2 hover:animate-hbounce hover:text-logo-hover'
-      >
-        SPATIAL AW
+        className='relative group flex-none w-36 text-2xl font-bold md:w-60 lg:w-80 text-left py-2 hover:animate-hbounce hover:text-logo-hover flex'
+        >
+        <img src="logo-small.png" alt="Spatial AW Logo" className="w-10 h-10 inline mr-2" />
+        <span className="block group-hover:hidden">SAW</span>
+        <span className="hidden group-hover:block">SPATIAL AW</span>
       </button>
     );
   }

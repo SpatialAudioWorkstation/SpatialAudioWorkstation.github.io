@@ -16,13 +16,13 @@ module.exports = {
         80: '80%',
       },
       animation: {
-        hbounce: 'hbounce 0.3s ease-in-out',
+        hbounce: 'hbounce 0.15s ease-in-out',
       },
       keyframes: {
         hbounce: {
           '0%': { letterSpacing: 'normal' },
-          '50%': { letterSpacing: '0.1em' },
-          '100%': { letterSpacing: '0.05em' },
+          '50%': { letterSpacing: '0.05em' },
+          '100%': { letterSpacing: 'normal' },
         }
       }
     },
