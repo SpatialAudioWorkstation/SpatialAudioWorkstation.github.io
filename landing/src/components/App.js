@@ -164,10 +164,10 @@ function getContactContent() {
 function App() {
   const sections = [
     { id: "about", title: "About", content: getAboutContent(), isVideo: false },
-    { id: "demo", title: "Demo", content: getDemoContent(), isVideo: true },
-    { id: "showcase", title: "Showcase", content: getShowcaseContent(), isVideo: true },
     { id: "testing", title: "User Testing", content: getTestingContent(), isVideo: false },
     { id: "features", title: "Features", content: getFeaturesContent(), isVideo: false },
+    { id: "demo", title: "Demo", content: getDemoContent(), isVideo: true },
+    { id: "showcase", title: "Showcase", content: getShowcaseContent(), isVideo: true },
     { id: "contact", title: "Contact Us", content: getContactContent(), isVideo: false }
   ];
 

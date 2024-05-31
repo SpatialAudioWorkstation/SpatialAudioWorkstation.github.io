@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function scrollToSection(id) {
   const element = document.getElementById(id);
@@ -19,7 +19,7 @@ function HeaderButton({ targetId, children }) {
 }
 
 function ButtonSeparator() {
-  return <span className='border-l h-8 self-center'></span>;
+  return <span className='border-header-brown md:border-logo-hover border-l h-8 self-center'></span>;
 }
 
 function Logo() {
@@ -36,25 +36,71 @@ function Logo() {
   }
 
 const Header = () => {
+
+    const [isOpen, setIsOpen] = useState(false);
+
+    const buttons = [
+        { id: "about", content: "About"},
+        { id: "testing", content: "User Testing"},
+        { id: "features", content: "Features"},
+        { id: "demo", content: "Demo"},
+        { id: "showcase", content: "Showcase"},
+        { id: "contact", content: "Contact Us"},
+      ];
+
   return (
-    <header className='flex items-center p-4 bg-header-brown shadow-md fixed w-full top-0 z-50 text-header-purple'>
-      <Logo />
-      <nav className="flex flex-1 justify-between">
-        <ButtonSeparator />
-        <HeaderButton targetId="about">About</HeaderButton>
-        <ButtonSeparator />
-        <HeaderButton targetId="demo">Demo</HeaderButton>
-        <ButtonSeparator />
-        <HeaderButton targetId="showcase">Showcase</HeaderButton>
-        <ButtonSeparator />
-        <HeaderButton targetId="testing">User Testing</HeaderButton>
-        <ButtonSeparator />
-        <HeaderButton targetId="features">Features</HeaderButton>
-        <ButtonSeparator />
-        <HeaderButton targetId="contact">Contact Us</HeaderButton>
-      </nav>
-    </header>
+      <div className='bg-header-brown shadow-md text-header-purple flex items-center p-4'>
+        
+        {/* Desktop */}
+        <div className='hidden md:flex'>
+            <Logo />
+            <nav className={`flex-row`}>
+                <div className="flex flex-col md:flex-row">
+                {buttons.map((button) => (
+                    <div key={button.id} className="flex ">
+                    <ButtonSeparator />
+                    <HeaderButton targetId={button.id} onClick={() => setIsOpen(false)}>
+                        {button.content}
+                    </HeaderButton>
+                    </div>
+                ))}
+                </div>
+            </nav>
+        </div>
+        
+
+        {/* Mobile */}
+        <div className='w-full md:hidden flex flex-row-reverse justify-end'>
+            
+            
+            <button
+            onClick={() => setIsOpen(!isOpen)}
+            className='md:hidden ml-auto p-2 focus:outline-none'
+            >
+                <svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d={isOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16m-7 6h7'} />
+                </svg>
+            </button>
+
+            <nav className={`md:hidden flex-row ml-auto ${isOpen ? 'block' : 'hidden'}`}>
+                <div className="flex flex-col">
+                {buttons.map((button) => (
+                    <div key={button.id} className="flex ">
+                    <ButtonSeparator />
+                    <HeaderButton targetId={button.id} onClick={() => setIsOpen(false)}>
+                        {button.content}
+                    </HeaderButton>
+                    </div>
+                ))}
+                </div>
+            </nav>
+            <Logo />
+        </div>
+        </div>
   );
 };
 
 export default Header;
+
+
+
