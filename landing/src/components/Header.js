@@ -49,7 +49,7 @@ const Header = () => {
       ];
 
   return (
-      <div className='bg-header-brown shadow-md text-header-purple flex items-center p-4'>
+      <div className='bg-header-brown shadow-md text-header-purple fixed w-full flex items-center p-4 z-50'>
         
         {/* Desktop */}
         <div className='hidden md:flex'>
@@ -87,7 +87,10 @@ const Header = () => {
                 {buttons.map((button) => (
                     <div key={button.id} className="flex ">
                     <ButtonSeparator />
-                    <HeaderButton targetId={button.id} onClick={() => setIsOpen(false)}>
+                    <HeaderButton targetId={button.id} onClick={() => {
+                        setIsOpen(!isOpen);
+                        scrollToSection(button.id);
+                        }}>
                         {button.content}
                     </HeaderButton>
                     </div>

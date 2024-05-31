@@ -11,10 +11,9 @@ function getDemoContent() {
   return (
     <div className="relative w-full h-0 pb-[56.25%]">
       <iframe 
-        className="absolute top-0 left-0 w-full h-full" 
+        className="absolute top-0 left-0 w-full h-full z-10" 
         src="https://www.youtube.com/embed/Id64ehbnGrQ?si=s3PVsGF-mw9Sw1lL" 
         title="YouTube video player" 
-        frameBorder="0" 
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
         referrerPolicy="strict-origin-when-cross-origin" 
         allowFullScreen
@@ -27,10 +26,9 @@ function getShowcaseContent() {
   return (
     <div className="relative w-full h-0 pb-[56.25%]">
       <iframe 
-        className="absolute top-0 left-0 w-full h-full" 
+        className="absolute top-0 left-0 w-full h-full z-10" 
         src="https://www.youtube.com/embed/i6TcplbpEsc?si=heX2C7qYZ9I9qVAR" 
         title="YouTube video player" 
-        frameBorder="0" 
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
         referrerPolicy="strict-origin-when-cross-origin" 
         allowFullScreen
@@ -54,9 +52,9 @@ function AccordionItem({ title, children }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="mb-4">
+    <div className="mb-4 w-full">
       <button
-        className="w-full text-left py-2 px-4 font-bold rounded focus:outline-none bg-section-bg-brown text-section-green hover:bg-section-green hover:text-section-bg-brown border-2 border-section-bg-brown"
+        className="w-full text-center md:text-left py-2 px-4 font-bold rounded focus:outline-none bg-section-bg-brown text-section-green hover:bg-section-green hover:text-section-bg-brown border-2 border-section-bg-brown"
         onClick={() => setIsOpen(!isOpen)}
       >
         {title}
@@ -72,7 +70,7 @@ function AccordionItem({ title, children }) {
 
 function getFeaturesContent() {
   return (
-    <section className="container mx-auto p-4">
+    <section className="w-full p-4">
       <AccordionItem title="DAW Functionality">
         <ul className="list-disc pl-6">
           <li>Spatializer - <a href="https://www.adsrsounds.com/product/software/panagement/" className="text-purple-800 hover:text-purple-600">Panagement 2</a> which only spatializes stereo, we plan to replace it in the future.</li>
@@ -172,7 +170,7 @@ function App() {
   ];
 
   return (
-    <div className="bg-fixed bg-no-repeat bg-cover" style={{backgroundImage: "url('scene-bg.jpg')"}}>
+    <div className="bg-center bg-fixed bg-no-repeat bg-cover" style={{backgroundImage: "url('scene-bg.jpg')"}}>
       <Header />
       <div>
         <Home />
