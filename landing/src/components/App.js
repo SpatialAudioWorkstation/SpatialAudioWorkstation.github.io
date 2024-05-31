@@ -171,7 +171,7 @@ function App() {
   ];
 
   return (
-    <div className="bg-fixed bg-no-repeat bg-cover" style={{backgroundImage: "url('scene-bg.jpg')"}}>
+    <div className="bg-fixed bg-no-repeat bg-cover " style={{backgroundImage: "url('scene-bg.jpg')"}}>
       <Header />
       <div>
         <Home />

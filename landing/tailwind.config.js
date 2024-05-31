@@ -10,9 +10,20 @@ module.exports = {
         'section-bg-brown': '#513026',
         'section-green': '#B1D9C6',
         'header-purple': '#D6C9F1',
+        'logo-hover': '#9E84D6',
       },
       gradientColorStopPositions: {
         80: '80%',
+      },
+      animation: {
+        hbounce: 'hbounce 0.3s ease-in-out',
+      },
+      keyframes: {
+        hbounce: {
+          '0%': { letterSpacing: 'normal' },
+          '50%': { letterSpacing: '0.1em' },
+          '100%': { letterSpacing: '0.05em' },
+        }
       }
     },
   },
