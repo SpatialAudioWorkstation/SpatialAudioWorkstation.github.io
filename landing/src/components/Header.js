@@ -11,7 +11,7 @@ function HeaderButton({ targetId, children }) {
   return (
     <button 
       onClick={() => scrollToSection(targetId)} 
-      className='flex-1 text-center py-2 hover:text-logo-hover hover:font-bold text-wrap'
+      className='text-center px-2 md:px-4 py-2 hover:text-logo-hover hover:font-bold text-wrap'
     >
       {children}
     </button>
@@ -52,19 +52,17 @@ const Header = () => {
       <div className='bg-header-brown shadow-md text-header-purple fixed w-full flex items-center p-4 z-50'>
         
         {/* Desktop */}
-        <div className='hidden md:flex'>
+        <div className='hidden md:flex flex-row w-full'>
             <Logo />
-            <nav className={`flex-row`}>
-                <div className="flex flex-col md:flex-row">
+            <nav className='justify-end flex w-full'>
                 {buttons.map((button) => (
-                    <div key={button.id} className="flex ">
+                    <div key={button.id} className=" ">
                     <ButtonSeparator />
                     <HeaderButton targetId={button.id} onClick={() => setIsOpen(false)}>
                         {button.content}
                     </HeaderButton>
                     </div>
                 ))}
-                </div>
             </nav>
         </div>
         
