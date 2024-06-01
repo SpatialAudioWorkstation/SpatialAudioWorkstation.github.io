@@ -1,6 +1,8 @@
 import React from 'react';
 
 const Home = () => {
+  // This displays the home page of the website
+  // The logo is displayed in the center of the screen
   return (
     <div id='home' className='flex items-center justify-center w-full h-screen'>
       <div className="text-center">

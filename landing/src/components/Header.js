@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 function scrollToSection(id) {
+  // Scroll to the section with the given id
   const element = document.getElementById(id);
   if (element) {
     element.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -69,35 +70,33 @@ const Header = () => {
 
         {/* Mobile */}
         <div className='w-full md:hidden flex flex-row-reverse justify-end'>
-            
-            
             <button
             onClick={() => setIsOpen(!isOpen)}
             className='md:hidden ml-auto p-2 focus:outline-none'
             >
-                <svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
-                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d={isOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16m-7 6h7'} />
-                </svg>
+              <svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+                <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d={isOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16m-7 6h7'} />
+              </svg>
             </button>
 
             <nav className={`md:hidden flex-row ml-auto ${isOpen ? 'block' : 'hidden'}`}>
-                <div className="flex flex-col">
-                {buttons.map((button) => (
-                    <div key={button.id} className="flex ">
-                    <ButtonSeparator />
-                    <HeaderButton targetId={button.id} onClick={() => {
-                        setIsOpen(!isOpen);
-                        scrollToSection(button.id);
-                        }}>
-                        {button.content}
-                    </HeaderButton>
-                    </div>
-                ))}
+              <div className="flex flex-col">
+              {buttons.map((button) => (
+                <div key={button.id} className="flex ">
+                <ButtonSeparator />
+                <HeaderButton targetId={button.id} onClick={() => {
+                  setIsOpen(!isOpen);
+                  scrollToSection(button.id);
+                  }}>
+                  {button.content}
+                </HeaderButton>
                 </div>
+              ))}
+              </div>
             </nav>
             <Logo />
         </div>
-        </div>
+      </div>
   );
 };
 
