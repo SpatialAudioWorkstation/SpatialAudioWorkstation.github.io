@@ -183,14 +183,17 @@ function getFeaturesContent() {
 function getContactContent() {
   return (
     <div className="">
-  <p>Email: spatialaw@gmail.com</p>
-  <a href="https://discord.gg/fMgGet5P" target="_blank" rel="noreferrer">
-    <button className="flex flex-row">
-      <p>Join our Community Discord:</p>
-      <img src="discord-logo.png" alt="Discord Logo" className="px-4 w-auto h-8 inline mr-2" />
-    </button>
-  </a>
-</div>
+      <p>
+        <a href="mailto:spatialaw@gmail.com" className='text-purple-800 hover:text-purple-600'>Send us an email</a>
+      </p>
+
+      <a href="https://discord.gg/fMgGet5P" target="_blank" rel="noreferrer">
+        <button className="flex flex-row">
+          <p>Join our Community Discord:</p>
+          <img src="discord-logo.png" alt="Discord Logo" className="px-4 w-auto h-8 inline mr-2" />
+        </button>
+      </a>
+    </div>
 
   );
 }
