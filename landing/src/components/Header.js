@@ -11,7 +11,7 @@ function HeaderButton({ targetId, children }) {
   return (
     <button 
       onClick={() => scrollToSection(targetId)} 
-      className='text-center px-2 md:px-4 py-2 hover:text-logo-hover hover:font-bold text-wrap'
+      className='h-full text-center px-2 md:px-4 py-2 hover:text-logo-hover hover:font-bold text-wrap'
     >
       {children}
     </button>

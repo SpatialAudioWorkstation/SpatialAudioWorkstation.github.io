@@ -42,7 +42,7 @@ function getTestingContent() {
     <><p className='text-center font-bold'>Interested in trying out the Spatial Audio Workstation? </p>
       <p className='pb-4'>Sign up for our user testing program to get early access to the software and provide feedback on your experience.</p>
     <p className='text-center'>
-      <a className='text-3xl text-purple-800 font-bold hover:text-purple-600' href="https://forms.office.com/r/CimTyFh82E">User Testing Signup</a>
+      <a className='text-3xl text-purple-800 font-bold hover:text-purple-600' href="https://forms.office.com/r/CimTyFh82E" target='_blank' rel="noreferrer">User Testing Signup</a>
       </p>
     </>
   )
@@ -57,6 +57,31 @@ function AccordionItem({ title, children }) {
         className="w-full text-center md:text-left py-2 px-4 font-bold rounded focus:outline-none bg-section-bg-brown text-section-green hover:bg-section-green hover:text-section-bg-brown border-2 border-section-bg-brown"
         onClick={() => setIsOpen(!isOpen)}
       >
+        
+        {/* Collapsible Menu Icon */}
+        <svg
+          className="w-6 h-6 inline-block ml-2 mr-6"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          {!isOpen ? (
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19 9l-7 7-7-7"
+            />
+          ) : (
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M5 15l7-7 7 7"
+            />
+          )}
+        </svg>
         {title}
       </button>
       {isOpen && (
@@ -156,7 +181,27 @@ function getFeaturesContent() {
 }
 
 function getContactContent() {
-  return "Email: spatialaw@gmail.com"
+  return (
+    <div className="">
+  <p>Email: spatialaw@gmail.com</p>
+  <a href="https://discord.gg/fMgGet5P" target="_blank" rel="noreferrer">
+    <button className="flex flex-row">
+      <p>Join our Community Discord:</p>
+      <img src="discord-logo.png" alt="Discord Logo" className="px-4 w-auto h-8 inline mr-2" />
+    </button>
+  </a>
+</div>
+
+  );
+}
+
+function getShowcaseSubtitle() {
+  return (
+    <>
+      <p>Check out these projects engineered with SAW!</p>
+      <p>Want to see your SAW project here? send us an email!</p>
+    </>
+  );
 }
 
 function App() {
@@ -165,7 +210,7 @@ function App() {
     { id: "testing", title: "User Testing", content: getTestingContent(), isVideo: false },
     { id: "features", title: "Features", content: getFeaturesContent(), isVideo: false },
     { id: "demo", title: "Demo", content: getDemoContent(), isVideo: true },
-    { id: "showcase", title: "Showcase", content: getShowcaseContent(), isVideo: true },
+    { id: "showcase", title: "Showcase", subtitle: getShowcaseSubtitle(), content: getShowcaseContent(), isVideo: true },
     { id: "contact", title: "Contact Us", content: getContactContent(), isVideo: false }
   ];
 
@@ -179,6 +224,7 @@ function App() {
             key={section.id}
             id={section.id}
             title={section.title}
+            subtitle={section.subtitle}
             headerOnLeft={index % 2 === 0}
             isVideo={section.isVideo}
           >
