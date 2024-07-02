@@ -41,9 +41,60 @@ function App() {
     </div>
   );
 }
-
 function getAboutContent() {
-  return "The Spatial Audio Workstation (SAW) revolutionizes audio production by integrating 3D spatialization and object placement into a Digital Audio Workstation (DAW) using open-source technologies like the Tracktion engine and Godot game engine. SAW's intuitive 3D interface allows users to precisely manage audio in a dynamic visual context, enhancing creative control over sound design. Features include robust track and clip management, interaction with audio through 3D objects, and comprehensive editing tools that cater to both novice and professional users."
+  return (
+    <div className="flex flex-col">
+      <p className="text-center font-bold">Spatial Audio Workstation</p>
+      {getSpatialAboutContent()}
+      <p className="text-center font-bold">The Team</p>
+      <div className="flex flex-row justify-center">
+        {getTeamMember("kaden.JPG", "Kaden Young", "CEO", getKadenAboutContent())}
+        {getTeamMember("aidan.png", "Aidan Waterman", "COO", getAidanAboutContent())}
+        {getTeamMember("josh.jpg", "Josh Bultman", "CTO", getJoshAboutContent())}
+        {getTeamMember("mitch.jpg", "Mitchell Mahnke", "CFO", getMitchAboutContent())}
+        {getTeamMember("kam.jpg", "Kameron Stepp", "CI/CD Lead", getKamAboutContent())}
+      </div>
+    </div>
+  );
+}
+
+function getTeamMember(image, name, title, aboutContent) {
+  return (
+    <div className="flex flex-col items-center border-r border-header-brown flex-1 p-4">
+      <img src={image} alt={name} className="w-32 h-32 rounded-full m-4" />
+      <p className="font-bold">{name}</p>
+      <p className="text-xs">{title}</p>
+      <p className="text-sm text-center mt-2">{aboutContent}</p>
+    </div>
+  );
+}
+
+function getSpatialAboutContent() {
+  return (
+    <p className="text-center my-4 mx-2">
+      The Spatial Audio Workstation (SAW) revolutionizes audio production by integrating 3D spatialization and object placement into a Digital Audio Workstation (DAW) using open-source technologies like the Tracktion engine and Godot game engine. SAW's intuitive 3D interface allows users to precisely manage audio in a dynamic visual context, enhancing creative control over sound design. Features include robust track and clip management, interaction with audio through 3D objects, and comprehensive editing tools that cater to both novice and professional users.
+    </p>
+  );
+}
+
+function getKadenAboutContent() {
+  return "With a Bachelor of Science in Software Engineering, complemented by a minor in Business Administration, and significant leadership experience as a former NCAA student-athlete and FTC Coach & Mentor, I am well-equipped to lead a software company as CEO. My hands-on experience in technical roles and project management, combined with my strategic business insights, positions me to effectively drive innovation and growth at Spatial.";
+}
+
+function getAidanAboutContent() {
+  return "With a Bachelor of Science in Computer Science, complemented by a minor in Mathematics, and more importantly a deep passion for AI, I am excited to be breaking into the audio world and develop the audio development tool of the future.";
+}
+
+function getJoshAboutContent() {
+  return "As a software engineer with a bachelor’s degree from the Milwaukee School of Engineering and six years of experience as an audio engineer for a globally broadcast audio drama, I offer a unique blend of technical and creative expertise. Throughout my career, I’ve developed innovative programs and web applications for diverse clients. Leveraging my domain knowledge and development background, I am well-prepared to lead the advancement of our spatial DAW.";
+}
+
+function getMitchAboutContent() {
+  return "With a Bachelor of Science in Computer Science, complemented by a minor in Mathematics, and significant leadership experience as a former Destination Imagination member and MSOE AI Coach & Mentor, I have the utmost confidence in being a valuable member of our team. I am also serving on the board of directors for a non profit as their treasurer, where I have gained insights that will be extremely useful for my role as CFO.";
+}
+
+function getKamAboutContent() {
+  return "With a Bachelor of Science in Software Engineering and prior experience developing and maintaining CI/CD systems as well as an interest to further expand my knowledge in CI/CD development, I am well positioned to fill this role.";
 }
 
 function getDemoContent() {
@@ -176,21 +227,45 @@ function getFeaturesContent() {
   );
 }
 
+// function getContactContent() {
+//   return (
+//     <div className="">
+//       <p>
+//         <a href="mailto:spatialaw@gmail.com" className='text-purple-800 hover:text-purple-600'>Send us an email</a>
+//       </p>
+
+//       <a href="https://discord.gg/fMgGet5P" target="_blank" rel="noreferrer">
+//         <button className="flex flex-row">
+//           <p>Join our Community Discord:</p>
+//           <img src="discord-logo.png" alt="Discord Logo" className="px-4 w-auto h-8 inline mr-2" />
+//         </button>
+//       </a>
+//     </div>
+
+//   );
+// }
+
 function getContactContent() {
   return (
-    <div className="">
-      <p>
-        <a href="mailto:spatialaw@gmail.com" className='text-purple-800 hover:text-purple-600'>Send us an email</a>
-      </p>
-
-      <a href="https://discord.gg/fMgGet5P" target="_blank" rel="noreferrer">
-        <button className="flex flex-row">
-          <p>Join our Community Discord:</p>
-          <img src="discord-logo.png" alt="Discord Logo" className="px-4 w-auto h-8 inline mr-2" />
-        </button>
-      </a>
+    <div className="flex justify-center items-center text-white py-4">
+      <div className="flex space-x-6">
+        <a href="https://x.com/SpatialAW" target="_blank" rel="noopener noreferrer">
+          <img src="X_logo_2023_original.svg" alt="X" className="w-full h-8" />
+        </a>
+        <a href="https://facebook.com/yourprofile" target="_blank" rel="noopener noreferrer">
+          <img src="2023_Facebook_icon.svg" alt="Facebook" className="w-full h-8" />
+        </a>
+        <a href="https://www.reddit.com/user/SpatialAW/" target="_blank" rel="noopener noreferrer">
+          <img src="reddit.png" alt="Reddit" className="w-full h-8" />
+        </a>
+        <a href="https://discord.gg/fMgGet5P" target="_blank" rel="noopener noreferrer">
+          <img src="discord-logo.png" alt="Discord" className="w-full h-8" />
+        </a>
+        <a href="mailto:spatialaw@gmail.com">
+          <img src="email.png" alt="Email" className="w-full h-8" />
+        </a>
+      </div>
     </div>
-
   );
 }
 

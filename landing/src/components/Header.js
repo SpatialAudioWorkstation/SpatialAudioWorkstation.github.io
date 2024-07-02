@@ -46,7 +46,7 @@ const Header = () => {
         { id: "features", content: "Features"},
         { id: "demo", content: "Demo"},
         { id: "showcase", content: "Showcase"},
-        { id: "contact", content: "Contact Us"},
+        { id: "contact", content: "Connect"},
       ];
 
   return (
