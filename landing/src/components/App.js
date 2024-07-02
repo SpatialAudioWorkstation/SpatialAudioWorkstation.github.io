@@ -258,7 +258,7 @@ function getContactContent() {
         <a href="https://www.reddit.com/user/SpatialAW/" target="_blank" rel="noopener noreferrer">
           <img src="reddit.png" alt="Reddit" className="w-full h-8" />
         </a>
-        <a href="https://discord.gg/fMgGet5P" target="_blank" rel="noopener noreferrer">
+        <a href="https://discord.gg/GuV3sT7fpC" target="_blank" rel="noopener noreferrer">
           <img src="discord-logo.png" alt="Discord" className="w-full h-8" />
         </a>
         <a href="mailto:spatialaw@gmail.com">
