@@ -1,0 +1,216 @@
+/* Import Nunito only once */
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+/* RESET & GLOBAL STYLES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Optionally set a base font-size on html to standardize sizing across the site */
+html {
+  font-family: 'Nunito', sans-serif;
+  /* Uncomment to use a specific base size, e.g.: */
+  /* font-size: 22px; */
+  color: #fff;
+}
+
+body {
+  /* From first file: 
+     font: 1.5rem 'Nunito', sans-serif; 
+     background-color: #0F172A;
+     color: #fff;
+     
+     From second file:
+     background-color: dodgerblue;
+     
+     Choose whichever background-color you prefer and final font size. 
+     Below is an example using the first file's background and a 1.5rem font.
+  */
+  font: 1.5rem 'Nunito', sans-serif;
+  min-height: 100vh;
+  background-color: #0F172A; /* or use dodgerblue if you prefer */
+  color: #fff;
+}
+
+/* Utility Classes */
+.errmsg {
+  color: firebrick;
+  /* The second file also has an .errmsg (background-color: lightpink, etc.).
+     Below merges them; adjust as needed.
+  */
+  background-color: lightpink;
+  font-weight: bold;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* General Container */
+#root {
+  min-height: 100vh;
+  display: flex;
+  padding: 1rem;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; 
+  padding: 1rem 0.5rem;
+}
+
+/* Sections */
+section {
+  /* First file: width: min(100%, 500px);
+     Second file: width: 100%; max-width: 420px; min-height: 400px; ...
+     Merge or choose one. Example below merges them logically.
+  */
+  width: 100%;
+  max-width: 500px; 
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1rem;
+  background-color: rgba(0,0,0,0.4);
+}
+
+/* Forms */
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-grow: 1;
+  padding-bottom: 1rem;
+}
+
+/* Links */
+a, a:visited {
+  color: whitesmoke; /* from first file */
+  /* Or use color: #fff from second file if preferred */
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: rgba(245, 245, 245, 0.9);
+}
+
+/* Inputs & Buttons */
+input, button, textarea {
+  /* Merge from both files: 
+     - first file: font: inherit;
+       second file: font-family: 'Nunito', sans-serif; font-size: 22px;
+     Here, we'll do 'inherit' which inherits from html or body, 
+     and a consistent size if you wish:
+  */
+  font: inherit;
+  font-size: 1rem; /* or 22px if that’s your preference */
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+/* Additional specificity from first file for .login input, .login button: 
+   We'll keep it to not break any layout you have.
+*/
+.login form {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.login input,
+.login button {
+  padding: 0.5em;
+  border-radius: 15px;
+}
+
+/* Page Layout Helpers */
+.public, .welcome, .users {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.public main {
+  flex-grow: 1;
+  border-top: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  padding: 1rem;
+}
+
+.users ul {
+  list-style-type: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+/* Instructions + Icons (SVG) */
+.instructions {
+  font-size: 0.75rem;
+  border-radius: 0.5rem;
+  background: #000;
+  color: #fff;
+  padding: 0.25rem;
+  position: relative;
+  bottom: -10px;
+}
+
+.instructions > svg {
+  margin-right: 0.25rem;
+}
+
+/* Helper Classes */
+.offscreen {
+  position: absolute;
+  left: -9999px;
+}
+
+.hide {
+  display: none;
+}
+
+.valid {
+  color: limegreen;
+  margin-left: 0.25rem;
+}
+
+.invalid {
+  color: red;
+  margin-left: 0.25rem;
+}
+
+.line {
+  display: inline-block;
+}
+
+.flexGrow {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.persistCheck {
+  font-size: 0.75rem;
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.persistCheck label {
+  margin: 0;
+}
+
+[type="checkbox"] {
+  height: 20px;
+  width: 20px;
+  margin: 0 5px 2px 2px;
+}
